@@ -1,372 +1,866 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[Your Name] — Web3 Social Media Manager</title>
-<meta name="description" content="Web3 social media manager portfolio. X (Twitter) growth, LinkedIn thought leadership, content strategy, and community building for crypto brands.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kunal Raut, Web3 Social Media Manager (X &amp; LinkedIn)</title>
+<meta name="description" content="Kunal Raut runs social for 18 Web3 brands on X and LinkedIn, degen to institutional. Strategy, content systems, and a memetic edge in images and video." />
+
+<!-- Social preview -->
+<meta property="og:title" content="Kunal Raut, Web3 Social Media Manager" />
+<meta property="og:description" content="I turn crypto brands into brands people follow. 18 Web3 brands, degen to institutional." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#ccff1a" />
+
+<!-- Fonts: Syne (display), Space Grotesk (body/UI), Space Mono (data/labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
 <style>
+  /* ============================================================
+     DESIGN SYSTEM: "Loud Desk" (kinetic maximal)
+     Pop / riso full palette. Energy comes from COLOR-BLOCKED
+     sections + chunky sticker cards + scroll-reactive marquees.
+     Boldness is spread on purpose: this is the memelord turned up,
+     held in line by a strict grid, AA contrast, and one type system.
+     ============================================================ */
   :root{
-    --ink:#181229;
-    --ink-soft:#544c6e;
-    --paper:#fdfbff;
-    --rose:#ff2d6f;
-    --amber:#ffb020;
-    --violet:#6c4dff;
-    --line:rgba(24,18,41,.12);
-    --card:#ffffff;
-    --shadow:0 18px 50px -20px rgba(24,18,41,.28);
-    --maxw:1120px;
+    --paper:#f0f1f3;   /* cool light canvas (not cream) */
+    --ink:#0c0c0e;     /* near-black */
+    --blue:#2b27ff;    /* electric */
+    --pink:#ff2e87;    /* hot magenta */
+    --lime:#ccff1a;    /* acid */
+    --orange:#ff5a1f;  /* tangerine */
+    --white:#ffffff;
+
+    --maxw:1240px;
+    --ease:cubic-bezier(.22,.61,.36,1);            /* strong ease-out */
+    --ease-io:cubic-bezier(.77,0,.175,1);          /* on-screen movement */
+
+    /* per-section roles, overridden by .sec.* */
+    --bg:var(--paper); --fg:var(--ink); --bd:var(--ink); --mut:rgba(0,0,0,.62);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+
+  /* ---------- RESET / BASE ---------- */
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
-    font-family:"Plus Jakarta Sans",system-ui,sans-serif;
-    background:var(--paper);color:var(--ink);
-    line-height:1.6;-webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Space Grotesk",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:clamp(16px,1.05vw,17px);line-height:1.55;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
   }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  a{color:inherit;text-decoration:none}
-  .mono{font-family:"Space Mono",monospace;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem}
-  h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;line-height:1.02;letter-spacing:-.02em}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--lime);color:var(--ink);}
 
-  /* NAV */
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
-    background:rgba(253,251,255,.78);border-bottom:1px solid var(--line)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .brand{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
-  .brand span{color:var(--rose)}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{font-weight:500;font-size:.95rem;color:var(--ink-soft);transition:color .2s}
-  .nav-links a:hover{color:var(--ink)}
-  .btn{display:inline-block;font-weight:700;font-size:.95rem;padding:11px 20px;border-radius:999px;
-    background:var(--ink);color:#fff;transition:transform .15s ease,box-shadow .2s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(24,18,41,.5)}
-  .btn-rose{background:linear-gradient(110deg,var(--rose),var(--violet))}
-  .nav-cta{padding:9px 18px}
-  .menu-toggle{display:none}
+  h1,h2,h3{font-family:"Syne",sans-serif;margin:0;font-weight:800;line-height:.98;letter-spacing:-.02em;text-wrap:balance;}
+  h2{font-size:clamp(2.2rem,6vw,4.4rem);text-transform:uppercase;}
+  h3{font-size:1.2rem;letter-spacing:-.01em;}
+  p{margin:0;text-wrap:pretty;}
+  strong{font-weight:700;}
 
-  /* HERO */
-  header{position:relative;padding:84px 0 64px;overflow:hidden}
-  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.5;z-index:0}
-  .blob.a{width:420px;height:420px;background:var(--rose);top:-120px;right:-80px}
-  .blob.b{width:360px;height:360px;background:var(--violet);top:80px;right:160px;opacity:.35}
-  .blob.c{width:300px;height:300px;background:var(--amber);top:240px;left:-120px;opacity:.4}
-  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--rose);margin-bottom:22px}
-  .eyebrow::before{content:"";width:28px;height:2px;background:var(--rose)}
-  h1.hero{font-size:clamp(2.6rem,6.4vw,5rem);font-weight:800}
-  h1.hero em{font-style:normal;background:linear-gradient(110deg,var(--rose),var(--violet) 60%,var(--amber));
-    -webkit-background-clip:text;background-clip:text;color:transparent}
-  .hero p.lead{font-size:1.2rem;color:var(--ink-soft);max-width:48ch;margin:24px 0 32px}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-side{display:flex;flex-direction:column;gap:14px}
-  .chip{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;
-    box-shadow:var(--shadow);display:flex;align-items:center;gap:14px}
-  .chip .dot{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-size:1.1rem;flex-shrink:0}
-  .chip:nth-child(1) .dot{background:rgba(255,45,111,.14)}
-  .chip:nth-child(2) .dot{background:rgba(108,77,255,.14)}
-  .chip:nth-child(3) .dot{background:rgba(255,176,32,.18)}
-  .chip b{display:block;font-family:"Bricolage Grotesque";font-size:1.05rem}
-  .chip small{color:var(--ink-soft);font-size:.85rem}
+  .mono{font-family:"Space Mono",monospace;}
 
-  /* STATS */
-  .stats{background:var(--ink);color:#fff;padding:56px 0}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-  .stat .num{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);
-    background:linear-gradient(120deg,#fff,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .stat .lbl{color:rgba(255,255,255,.6);margin-top:6px}
+  /* solid emphasis colors (NO gradient text) */
+  .c-blue{color:var(--blue);}
+  .c-pink{color:var(--pink);}
+  .c-lime{color:var(--lime);}
+  .c-orange{color:var(--orange);}
 
-  /* SECTION SHELL */
-  section.block{padding:88px 0}
-  .sec-head{margin-bottom:48px;max-width:60ch}
-  .sec-head .mono{color:var(--rose)}
-  .sec-head h2{font-size:clamp(2rem,4.4vw,3rem);font-weight:800;margin-top:12px}
-  .sec-head p{color:var(--ink-soft);font-size:1.08rem;margin-top:14px}
+  /* ---------- LAYOUT / SECTION SYSTEM ---------- */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,44px);position:relative;z-index:1;}
+  .sec{background:var(--bg);color:var(--fg);padding:clamp(64px,9vw,128px) 0;position:relative;border-bottom:3px solid var(--ink);}
+  .sec.dark{--bg:var(--ink);--fg:#fff;--bd:#fff;--mut:rgba(255,255,255,.68);}
+  .sec.blue{--bg:var(--blue);--fg:#fff;--bd:#fff;--mut:rgba(255,255,255,.82);}
+  .sec.pink{--bg:var(--pink);--fg:var(--ink);--bd:var(--ink);--mut:rgba(0,0,0,.66);}
+  .sec.lime{--bg:var(--lime);--fg:var(--ink);--bd:var(--ink);--mut:rgba(0,0,0,.66);}
+  .sec-head{max-width:780px;margin-bottom:clamp(34px,5vw,60px);}
+  .sec-head .lede{margin-top:1.1rem;color:var(--mut);font-size:clamp(1.02rem,1.4vw,1.18rem);max-width:62ch;}
+  .label{font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;display:inline-block;
+    background:var(--ink);color:var(--lime);padding:.4rem .7rem;border-radius:999px;margin-bottom:1.1rem;}
+  .sec.dark .label,.sec.blue .label{background:var(--lime);color:var(--ink);}
 
-  /* CASE STUDIES */
-  .cases{display:grid;gap:24px}
-  .case{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:34px;
-    box-shadow:var(--shadow);transition:transform .2s ease}
-  .case:hover{transform:translateY(-4px)}
-  .case-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
-  .case h3{font-size:1.5rem;font-weight:700}
-  .case .tag{font-family:"Space Mono";font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;
-    color:var(--violet);background:rgba(108,77,255,.1);padding:6px 12px;border-radius:999px;white-space:nowrap}
-  .case .row{margin-top:18px}
-  .case .row .mono{color:var(--ink-soft);display:block;margin-bottom:4px}
-  .case .results{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-  .pill{font-weight:700;font-size:.95rem;padding:8px 16px;border-radius:999px;
-    background:linear-gradient(110deg,rgba(255,45,111,.12),rgba(108,77,255,.12));border:1px solid var(--line)}
-  .pill b{color:var(--rose)}
-
-  /* DO / SKILLS */
-  .do-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .do{padding:28px;border-radius:20px;border:1px solid var(--line);background:var(--card)}
-  .do .ico{font-size:1.6rem;margin-bottom:14px}
-  .do h3{font-size:1.2rem;margin-bottom:8px}
-  .do p{color:var(--ink-soft);font-size:.97rem}
-
-  /* FEED */
-  .feed{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .post{position:relative;aspect-ratio:1;border-radius:18px;overflow:hidden;color:#fff;
-    display:flex;flex-direction:column;justify-content:flex-end;padding:18px;transition:transform .2s}
-  .post:hover{transform:scale(1.02)}
-  .post::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.55))}
-  .post>*{position:relative;z-index:2}
-  .post:nth-child(1){background:linear-gradient(135deg,#ff2d6f,#ff7b54)}
-  .post:nth-child(2){background:linear-gradient(135deg,#6c4dff,#a26bff)}
-  .post:nth-child(3){background:linear-gradient(135deg,#ffb020,#ff6f61)}
-  .post:nth-child(4){background:linear-gradient(135deg,#3a2d6b,#6c4dff)}
-  .post:nth-child(5){background:linear-gradient(135deg,#ff2d6f,#6c4dff)}
-  .post:nth-child(6){background:linear-gradient(135deg,#ff9f1c,#ffbf69)}
-  .post .meta{font-family:"Space Mono";font-size:.7rem;opacity:.9}
-  .post b{font-family:"Bricolage Grotesque";font-size:1.05rem;line-height:1.15;margin-top:4px;display:block}
-
-  /* ABOUT */
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-  .about p{color:var(--ink-soft);font-size:1.08rem;margin-bottom:16px}
-  .tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-  .tools span{font-size:.85rem;font-weight:600;padding:7px 14px;border-radius:10px;
-    background:var(--card);border:1px solid var(--line)}
-
-  /* CONTACT */
-  .contact{background:var(--ink);color:#fff;border-radius:32px;padding:64px 40px;text-align:center;position:relative;overflow:hidden}
-  .contact .blob{opacity:.4}
-  .contact h2{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;position:relative;z-index:2}
-  .contact p{color:rgba(255,255,255,.7);max-width:42ch;margin:16px auto 30px;position:relative;z-index:2}
-  .contact .hero-cta{justify-content:center;position:relative;z-index:2}
-  .btn-light{background:#fff;color:var(--ink)}
-
-  footer{padding:40px 0;text-align:center;color:var(--ink-soft);font-size:.9rem}
-
-  /* REVEAL */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-  .reveal.in{opacity:1;transform:none}
-
-  /* RESPONSIVE */
-  @media(max-width:860px){
-    .hero-grid{grid-template-columns:1fr}
-    .hero-side{flex-direction:row;flex-wrap:wrap}.hero-side .chip{flex:1;min-width:220px}
-    .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
-    .do-grid{grid-template-columns:1fr}
-    .about-grid{grid-template-columns:1fr;gap:28px}
-    .nav-links{display:none}
+  /* ---------- BUTTONS (sticker + magnetic) ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.5rem;font-family:"Syne",sans-serif;font-weight:800;font-size:.98rem;
+    letter-spacing:-.01em;padding:.85rem 1.5rem;border-radius:999px;border:2.5px solid var(--ink);cursor:pointer;
+    background:transparent;color:inherit;will-change:transform;
+    transition:transform .16s var(--ease),box-shadow .2s var(--ease),background .2s,color .2s;
   }
-  @media(max-width:540px){
-    .feed{grid-template-columns:repeat(2,1fr)}
-    .case{padding:24px}
+  .btn-primary{background:var(--lime);color:var(--ink);box-shadow:5px 5px 0 var(--ink);}
+  .btn-ghost{background:transparent;color:inherit;border-color:currentColor;}
+  .btn:active{transform:scale(.97);}
+  @media(hover:hover){
+    .btn-primary:hover{box-shadow:8px 8px 0 var(--pink);}
+    .btn-ghost:hover{background:var(--ink);color:var(--lime);border-color:var(--ink);}
   }
-  :focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--blue);outline-offset:3px;}
+  .sec.blue a:focus-visible,.sec.blue button:focus-visible{outline-color:var(--lime);}
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  .progress{position:fixed;top:0;left:0;height:5px;width:100%;transform:scaleX(0);transform-origin:0 50%;
+    background:var(--pink);z-index:60;will-change:transform;}
+
+  /* ============================================================ NAV ============================================================ */
+  header.nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:3px solid var(--ink);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px;}
+  .brand{font-family:"Syne",sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:-.02em;}
+  .brand .dot{color:var(--pink);}
+  .nav-links{display:flex;align-items:center;gap:1.5rem;}
+  .nav-links a{font-weight:700;font-size:.92rem;position:relative;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:-5px;height:3px;width:0;background:var(--blue);transition:width .25s var(--ease);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:.7rem;}
+  .nav-toggle{display:none;background:none;border:2.5px solid var(--ink);border-radius:9px;padding:.45rem .55rem;cursor:pointer;}
+  .nav-toggle span{display:block;width:20px;height:2.5px;background:var(--ink);margin:4px 0;border-radius:2px;}
+
+  /* ============================================================ HERO ============================================================ */
+  .hero{padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(48px,7vw,88px);overflow:hidden;}
+  .live{display:inline-flex;align-items:center;gap:.5rem;font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.16em;
+    text-transform:uppercase;border:2.5px solid var(--ink);border-radius:999px;padding:.4rem .85rem;background:var(--white);}
+  .live .pulse{position:relative;width:9px;height:9px;border-radius:50%;background:var(--blue);flex:0 0 auto;}
+  .live .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--blue);
+    transform:scale(1);opacity:.55;animation:pulse 2.2s var(--ease) infinite;}
+  @keyframes pulse{0%{transform:scale(1);opacity:.55;}70%,100%{transform:scale(3.4);opacity:0;}}
+  .hero h1{font-size:clamp(2.9rem,9vw,6rem);margin:1.2rem 0 0;line-height:.95;text-transform:uppercase;}
+  .hero h1 .line{display:block;}
+  .hero .sub{margin-top:1.6rem;font-size:clamp(1.05rem,1.6vw,1.3rem);max-width:50ch;color:rgba(0,0,0,.7);}
+  .hero .sub strong{color:var(--ink);}
+  .cta-row{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.8rem;}
+  .stickers{margin-top:2.4rem;display:flex;flex-wrap:wrap;gap:.7rem;}
+  .sticker{font-family:"Space Mono",monospace;font-size:.74rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    border:2.5px solid var(--ink);border-radius:999px;padding:.5rem .9rem;background:var(--white);box-shadow:3px 3px 0 var(--ink);
+    transition:transform .2s var(--ease);}
+  .sticker:nth-child(1){--r:-3deg;background:var(--lime);}
+  .sticker:nth-child(2){--r:2deg;background:var(--pink);color:var(--ink);}
+  .sticker:nth-child(3){--r:-2deg;background:var(--blue);color:#fff;box-shadow:3px 3px 0 var(--ink);}
+  .sticker:nth-child(4){--r:3deg;background:var(--orange);color:var(--ink);}
+  .sticker{transform:rotate(var(--r,0deg));}
+  @media(hover:hover){.sticker:hover{transform:rotate(0deg) translateY(-3px) scale(1.04);}}
+
+  /* ============================================================ MARQUEE BANDS ============================================================ */
+  .mq{overflow:hidden;padding:1.5rem 0;border-bottom:3px solid var(--ink);background:var(--ink);color:#fff;}
+  .mq + .mq{border-top:0;}
+  .mq-row{overflow:hidden;}
+  .mq-row + .mq-row{margin-top:.4rem;}
+  .mq-track{display:flex;align-items:center;width:max-content;will-change:transform;}
+  .mq-item{font-family:"Syne",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.01em;
+    font-size:clamp(1.6rem,4vw,3rem);padding:0 1.4rem;white-space:nowrap;}
+  .mq-row.alt .mq-item{font-family:"Space Mono",monospace;font-weight:700;font-size:clamp(1rem,2vw,1.5rem);
+    -webkit-text-stroke:1px #fff;color:transparent;}
+  .mq-sep{color:var(--lime);padding:0 .2rem;}
+  .mq-row.alt .mq-sep{color:var(--pink);-webkit-text-stroke:0;}
+
+  /* ============================================================ STATS ============================================================ */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);}
+  .stat .num{font-family:"Syne",sans-serif;font-weight:800;font-size:clamp(2.8rem,6vw,4.6rem);line-height:.9;}
+  .stat .num.pop{color:var(--lime);}
+  .stat .lab{margin-top:.7rem;font-family:"Space Mono",monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);}
+  .stat .tg{display:inline-block;margin-top:.55rem;font-family:"Space Mono",monospace;font-size:.68rem;font-weight:700;
+    padding:.18rem .55rem;border-radius:999px;border:2px solid currentColor;}
+  .stat .tg.real{color:var(--lime);}
+  .stat .tg.ph{color:rgba(255,255,255,.8);}
+
+  /* ============================================================ STICKER CARDS (shared) ============================================================ */
+  .card{
+    position:relative;background:var(--white);color:var(--ink);border:2.5px solid var(--ink);border-radius:20px;
+    box-shadow:6px 6px 0 var(--pop,var(--ink));will-change:transform;
+    transition:transform .18s var(--ease),box-shadow .18s var(--ease);
+  }
+  .card:nth-child(4n+1){--pop:var(--blue);}
+  .card:nth-child(4n+2){--pop:var(--pink);}
+  .card:nth-child(4n+3){--pop:var(--orange);}
+  .card:nth-child(4n+4){--pop:var(--ink);}
+  @media(hover:hover){
+    .card:hover{box-shadow:11px 11px 0 var(--pop,var(--ink));}
+  }
+  a.card:active{transform:scale(.99);}
+
+  /* ---------- ROSTER ---------- */
+  .roster{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;}
+  .brand-card{padding:1.2rem;display:flex;flex-direction:column;gap:.7rem;}
+  .bc-top{display:flex;align-items:center;gap:.85rem;}
+  .logo-tile{position:relative;width:52px;height:52px;flex:0 0 auto;border-radius:13px;overflow:hidden;display:grid;place-items:center;
+    color:#fff;background:var(--pop,var(--ink));border:2.5px solid var(--ink);
+    font-family:"Syne",sans-serif;font-weight:800;font-size:1rem;letter-spacing:-.02em;}
+  .card:nth-child(4n+3) .logo-tile{color:var(--ink);}   /* orange tile: dark glyph */
+  .logo-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#fff;}
+  .brand-card h3{display:inline-flex;align-items:center;gap:.3rem;font-size:1.05rem;}
+  .brand-card h3 .arr{font-size:.78em;opacity:0;transform:translate(-3px,3px);transition:opacity .2s,transform .2s;}
+  .brand-card .plat{font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.55);margin-top:.15rem;}
+  .brand-card p{color:rgba(0,0,0,.7);font-size:.9rem;line-height:1.45;}
+  @media(hover:hover){.brand-card:hover h3 .arr{opacity:1;transform:none;color:var(--pink);}}
+  .brand-card.archived{opacity:.92;}
+  .brand-card.archived .plat{color:var(--orange);}
+
+  /* ---------- WORK ---------- */
+  .work{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .case{padding:clamp(1.5rem,2.6vw,2.1rem);}
+  .case .kick{font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:700;}
+  .case h3{font-size:clamp(1.5rem,2.6vw,2rem);margin:.5rem 0 .2rem;text-transform:uppercase;}
+  .case .role{font-family:"Space Mono",monospace;color:rgba(0,0,0,.6);font-size:.82rem;margin-bottom:1rem;}
+  .case .blk{margin-top:1rem;}
+  .case .blk .lbl{font-family:"Space Mono",monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);font-weight:700;}
+  .case .blk p{margin-top:.3rem;font-size:.94rem;color:rgba(0,0,0,.82);}
+  .pills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem;}
+  .pill{font-family:"Space Mono",monospace;font-size:.74rem;font-weight:700;padding:.42rem .8rem;border-radius:999px;border:2px solid var(--ink);background:var(--paper);}
+  .pill b{color:var(--blue);}
+
+  /* ---------- WHAT I DO (pink section) ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .pillar{padding:1.5rem;}
+  .pillar .tg{font-family:"Space Mono",monospace;font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);}
+  .pillar h3{margin:.7rem 0 .5rem;font-size:1.2rem;text-transform:uppercase;}
+  .pillar p{color:rgba(0,0,0,.72);font-size:.92rem;}
+
+  /* ---------- POSTS (lime section) ---------- */
+  .quotes{columns:2;column-gap:22px;}
+  @media(max-width:760px){.quotes{columns:1;}}
+  .tweet{display:block;break-inside:avoid;margin:0 0 22px;padding:1.3rem 1.4rem;}
+  .tweet .t-head{display:flex;align-items:center;gap:.7rem;margin-bottom:.9rem;}
+  .tweet .logo-tile{width:44px;height:44px;border-radius:50%;font-size:.9rem;}
+  .t-id{display:flex;flex-direction:column;min-width:0;line-height:1.25;}
+  .t-name{font-family:"Syne",sans-serif;font-weight:800;font-size:.92rem;}
+  .t-handle{font-family:"Space Mono",monospace;font-size:.76rem;color:rgba(0,0,0,.55);}
+  .t-x{width:19px;height:19px;margin-left:auto;flex:0 0 auto;}
+  .t-text{font-family:"Syne",sans-serif;font-weight:700;font-size:1.14rem;letter-spacing:-.01em;line-height:1.32;margin:0 0 1rem;}
+  .t-foot{display:flex;align-items:center;justify-content:space-between;gap:.6rem;font-family:"Space Mono",monospace;font-size:.66rem;
+    letter-spacing:.05em;text-transform:uppercase;color:rgba(0,0,0,.55);}
+  .t-plat{padding:.22rem .6rem;border:2px solid var(--ink);border-radius:999px;}
+
+  /* ---------- ABOUT ---------- */
+  .about{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,5vw,56px);align-items:start;}
+  .about-copy h2{margin-bottom:1rem;}
+  .about-copy p{color:rgba(0,0,0,.74);font-size:1.05rem;margin-top:1rem;}
+  .about-copy p strong{color:var(--ink);}
+  .tagrows{display:flex;flex-direction:column;gap:1.4rem;}
+  .tagrow .lbl{font-family:"Space Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:.6rem;}
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem;}
+  .tag-item{font-family:"Space Mono",monospace;font-size:.78rem;font-weight:700;padding:.4rem .8rem;border-radius:999px;border:2px solid var(--ink);background:var(--white);}
+
+  /* ---------- CONTACT (dark finale) ---------- */
+  .contact-inner{text-align:center;max-width:760px;margin:0 auto;}
+  .contact-inner h2{font-size:clamp(2.4rem,7vw,5rem);}
+  .contact-inner .lede{color:rgba(255,255,255,.74);margin-top:1.1rem;font-size:1.12rem;}
+  .contact-btns{margin-top:2.2rem;display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:#fff;padding:2.4rem 0;}
+  .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:"Space Mono",monospace;font-size:.8rem;color:rgba(255,255,255,.6);}
+  .foot-inner .brand{font-family:"Syne",sans-serif;font-size:1.05rem;color:#fff;}
+  .foot-inner .dot{color:var(--lime);}
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+  .stagger.reveal{transform:none;}     /* container only fades; children carry the rise (no compounded translate) */
+  .stagger.in > *{animation:rise .6s var(--ease) both;}
+  .stagger.in > *:nth-child(2){animation-delay:.05s;}
+  .stagger.in > *:nth-child(3){animation-delay:.10s;}
+  .stagger.in > *:nth-child(4){animation-delay:.15s;}
+  .stagger.in > *:nth-child(5){animation-delay:.20s;}
+  .stagger.in > *:nth-child(6){animation-delay:.25s;}
+  @keyframes rise{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .stats{grid-template-columns:repeat(2,1fr);row-gap:38px;}
+    .work{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:repeat(2,1fr);}
+    .about{grid-template-columns:1fr;}
+  }
+  @media(max-width:640px){
+    .nav-links,.nav-cta .btn-ghost{display:none;}
+    .nav-toggle{display:block;}
+    .nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--paper);
+      border-bottom:3px solid var(--ink);padding:1rem 1.2rem 1.4rem;gap:1rem;}
+    .pillars{grid-template-columns:1fr;}
+  }
+
+  /* ---------- TOUCH: no sticky hover lifts ---------- */
+  @media(hover:none){
+    .card:hover,.sticker:hover{transform:none;}
+  }
+
+  /* ---------- REDUCED MOTION ---------- */
   @media(prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-    .reveal{opacity:1;transform:none}
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+    .reveal{opacity:1;transform:none;}
+    .progress{display:none;}
   }
 </style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
-<nav>
+<!-- ============================================================ NAV ============================================================ -->
+<header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">[Your Name]<span>.</span></a>
-    <div class="nav-links">
+    <a class="brand" href="#top">Kunal Raut<span class="dot">.</span></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#clients">Clients</a>
       <a href="#work">Work</a>
-      <a href="#do">What I do</a>
-      <a href="#feed">Recent</a>
-      <a href="#about">About</a>
-      <a class="btn btn-rose nav-cta" href="#contact">Hire me</a>
-    </div>
-  </div>
-</nav>
-
-<header id="top">
-  <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow mono">Web3 Social Media Manager</span>
-      <h1 class="hero">I help Web3 brands <em>win the timeline.</em></h1>
-      <p class="lead">I run X and LinkedIn end to end for crypto brands — narrative, content, and community — turning attention into followers, mindshare, and a community that actually shows up. Based in [City].</p>
-      <div class="hero-cta">
-        <a class="btn btn-rose" href="#work">See the work</a>
-        <a class="btn" style="background:transparent;color:var(--ink);border:1.5px solid var(--ink)" href="#contact">Get in touch</a>
-      </div>
-    </div>
-    <div class="hero-side">
-      <div class="chip"><span class="dot">𝕏</span><span><b>+[X]K followers</b><small>grown on X</small></span></div>
-      <div class="chip"><span class="dot">👁️</span><span><b>[X]M+ impressions</b><small>across X & LinkedIn</small></span></div>
-      <div class="chip"><span class="dot">🎙️</span><span><b>[X]+ Spaces</b><small>hosted & co-hosted</small></span></div>
+      <a href="#what">What I do</a>
+      <a href="#posts">Posts</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary magnetic" href="#contact">Work with me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
 
-<section class="stats">
-  <div class="wrap stats-grid">
-    <div class="stat reveal"><div class="num" data-target="60" data-suffix="K">0</div><div class="lbl mono">Followers grown</div></div>
-    <div class="stat reveal"><div class="num" data-target="7.5" data-suffix="%">0</div><div class="lbl mono">Avg engagement</div></div>
-    <div class="stat reveal"><div class="num" data-target="40" data-suffix="M">0</div><div class="lbl mono">Impressions</div></div>
-    <div class="stat reveal"><div class="num" data-target="80" data-suffix="+">0</div><div class="lbl mono">Spaces hosted</div></div>
-  </div>
-</section>
+<main id="top">
 
-<section class="block" id="work">
+<!-- ============================================================ HERO ============================================================ -->
+<section class="sec hero">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="mono">Selected work</span>
-      <h2>Case studies, not just pretty posts.</h2>
-      <p>Each one in plain terms: the problem, what I actually did, and the number that moved.</p>
-    </div>
-    <div class="cases">
-
-      <article class="case reveal">
-        <div class="case-top">
-          <h3>[Client 1 — project name] — [X]K to [X]K on X</h3>
-          <span class="tag">X · Organic growth</span>
-        </div>
-        <div class="row"><span class="mono">The challenge</span>[e.g. low mindshare on CT and a feed that wasn't converting impressions into a real community.]</div>
-        <div class="row"><span class="mono">What I did</span>[e.g. built a daily posting cadence of threads, 2-liners and polls, ran reply engagement on top accounts, and co-hosted weekly Spaces.]</div>
-        <div class="results">
-          <span class="pill"><b>+[X]K</b> followers</span>
-          <span class="pill"><b>[X]%</b> engagement rate</span>
-          <span class="pill"><b>[X]M</b> impressions / mo</span>
-        </div>
-      </article>
-
-      <article class="case reveal">
-        <div class="case-top">
-          <h3>[Client 2 — project name] — founder-led growth on LinkedIn</h3>
-          <span class="tag">LinkedIn · Thought leadership</span>
-        </div>
-        <div class="row"><span class="mono">The challenge</span>[e.g. the founder had deep expertise but no presence with investors, partners, and talent.]</div>
-        <div class="row"><span class="mono">What I did</span>[e.g. ghostwrote 3x/week posts around the ecosystem narrative, built a content pillar system, and turned conversations into inbound.]</div>
-        <div class="results">
-          <span class="pill"><b>[X]K</b> followers</span>
-          <span class="pill"><b>[X]M</b> impressions</span>
-          <span class="pill"><b>[X]+</b> inbound DMs</span>
-        </div>
-      </article>
-
-      <article class="case reveal">
-        <div class="case-top">
-          <h3>[Client 3 — project name] — community around a major launch</h3>
-          <span class="tag">X + Community · Campaign</span>
-        </div>
-        <div class="row"><span class="mono">The challenge</span>[e.g. building momentum and trust ahead of a key milestone without overhyping.]</div>
-        <div class="row"><span class="mono">What I did</span>[e.g. ran a coordinated content + ambassador campaign, KOL outreach, and daily community engagement across X and Discord/Telegram.]</div>
-        <div class="results">
-          <span class="pill"><b>[X]M</b> campaign impressions</span>
-          <span class="pill"><b>[X]K</b> community joins</span>
-          <span class="pill"><b>[X]+</b> KOLs activated</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="block" id="do" style="background:#f6f3fb">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="mono">What I do</span>
-      <h2>The full stack of social.</h2>
-    </div>
-    <div class="do-grid">
-      <div class="do reveal"><div class="ico">🧭</div><h3>Narrative & strategy</h3><p>Positioning, content pillars, and a posting cadence for X & LinkedIn that ladders up to real business goals.</p></div>
-      <div class="do reveal"><div class="ico">✍️</div><h3>X content</h3><p>Threads, 2-liners, polls, and reply-bait that earns impressions and grows mindshare on CT.</p></div>
-      <div class="do reveal"><div class="ico">💼</div><h3>LinkedIn & founder voice</h3><p>Ghostwriting and thought-leadership content that builds trust with investors, partners, and talent.</p></div>
-      <div class="do reveal"><div class="ico">🎙️</div><h3>X Spaces</h3><p>Planning, hosting, and promoting Spaces — plus repurposing the best moments into evergreen content.</p></div>
-      <div class="do reveal"><div class="ico">💬</div><h3>Community</h3><p>Daily engagement across X, Discord, and Telegram that turns followers into an active community.</p></div>
-      <div class="do reveal"><div class="ico">🤝</div><h3>KOL & ambassadors</h3><p>Outreach, briefs, and programs that put your brand in front of the right Web3 audiences.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="feed">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="mono">Recent posts</span>
-      <h2>A look at the timeline.</h2>
-      <p>Swap these tiles for real screenshots in your <code>/assets</code> folder. Link each one to the live X post or LinkedIn post.</p>
-    </div>
-    <div class="feed">
-      <a class="post reveal" href="#"><span class="meta">THREAD · X</span><b>"[Hook line]"</b><span class="meta">[420K] impressions</span></a>
-      <a class="post reveal" href="#"><span class="meta">POST · LINKEDIN</span><b>"[Hook line]"</b><span class="meta">[88K] impressions</span></a>
-      <a class="post reveal" href="#"><span class="meta">POLL · X</span><b>"[Question]"</b><span class="meta">[12K] votes</span></a>
-      <a class="post reveal" href="#"><span class="meta">SPACE · X</span><b>"[Topic]"</b><span class="meta">[2.4K] live listeners</span></a>
-      <a class="post reveal" href="#"><span class="meta">CAMPAIGN · X</span><b>"[Campaign]"</b><span class="meta">[3.1M] reach</span></a>
-      <a class="post reveal" href="#"><span class="meta">2-LINER · X</span><b>"[Hook line]"</b><span class="meta">[210K] impressions</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="block" id="about" style="background:#f6f3fb">
-  <div class="wrap about-grid">
     <div class="reveal">
-      <span class="sec-head mono" style="color:var(--rose)">About</span>
-      <h2 style="font-size:clamp(1.9rem,4vw,2.6rem);font-weight:800;margin:12px 0 18px">Part writer, part strategist, all community.</h2>
-      <p>I'm [Your Name], a Web3 social media manager with [X] years helping crypto brands and founders grow on X and LinkedIn. I care as much about a clean impressions chart as a clever hook — and I know that in Web3, the community is the product.</p>
-      <p>I've worked with [number] clients across [DeFi / infra / NFT / L1-L2 / etc.]. Open to [full-time / freelance / contract / DAO] roles.</p>
-    </div>
-    <div class="reveal">
-      <span class="mono" style="color:var(--ink-soft)">Tools I work in</span>
-      <div class="tools">
-        <span>X Pro / TweetDeck</span><span>Typefully</span><span>Hypefury</span>
-        <span>Kaito</span><span>Cookie.fun</span><span>LinkedIn</span><span>Notion</span>
-        <span>Canva</span><span>Discord</span><span>Telegram</span><span>Dune</span><span>Figma</span>
+      <span class="live"><span class="pulse" aria-hidden="true"></span>Web3 Social · X &amp; LinkedIn</span>
+      <h1>
+        <span class="line">I turn crypto</span>
+        <span class="line">brands into brands</span>
+        <span class="line">people <span class="c-blue">follow</span><span class="c-pink">.</span></span>
+      </h1>
+      <p class="sub">
+        Social lead for <strong>18 Web3 brands</strong>, from degen memecoins to institutional RWA.
+        Strategy, content systems, and a memetic edge in images &amp; video that actually moves the timeline.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary magnetic" href="#contact">Work with me →</a>
+        <a class="btn btn-ghost magnetic" href="#work">See the work</a>
+      </div>
+      <div class="stickers" aria-hidden="false">
+        <span class="sticker">18 brands</span>
+        <span class="sticker">X + LinkedIn</span>
+        <span class="sticker">degen → institutional</span>
+        <span class="sticker">memetic</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="block">
+<!-- ============================================================ SIGNATURE: KINETIC MARQUEES ============================================================ -->
+<div class="mq" aria-hidden="true">
+  <div class="mq-row">
+    <div class="mq-track" data-dir="left">
+      <span class="mq-item">REalloys</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">Paragon Exchange</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">American Fortress</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">DataHaven</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">Launcher</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">T-Rize</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">Gift Horse</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">5th Kingdom</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">FFGI / Film3</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">GTC</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">LFG</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">IMPAKT</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">ICED</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">Lockly</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">MultiBank</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">Oraichain</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">WhaleSquares</span><span class="mq-item mq-sep">✦</span>
+      <span class="mq-item">Valinity DeFi</span><span class="mq-item mq-sep">✦</span>
+    </div>
+  </div>
+  <div class="mq-row alt">
+    <div class="mq-track" data-dir="right">
+      <span class="mq-item">Brand voice</span><span class="mq-item mq-sep">/</span>
+      <span class="mq-item">Ghostwriting</span><span class="mq-item mq-sep">/</span>
+      <span class="mq-item">Content systems</span><span class="mq-item mq-sep">/</span>
+      <span class="mq-item">Newsjacking</span><span class="mq-item mq-sep">/</span>
+      <span class="mq-item">Memetic content</span><span class="mq-item mq-sep">/</span>
+      <span class="mq-item">Short-form video</span><span class="mq-item mq-sep">/</span>
+      <span class="mq-item">Community growth</span><span class="mq-item mq-sep">/</span>
+      <span class="mq-item">Degen ↔ institutional</span><span class="mq-item mq-sep">/</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ STATS ============================================================ -->
+<section class="sec blue" id="stats">
   <div class="wrap">
-    <div class="contact reveal" id="contact">
-      <div class="blob a" style="width:300px;height:300px;top:-80px;left:-40px"></div>
-      <div class="blob b" style="width:260px;height:260px;bottom:-80px;right:-20px;top:auto"></div>
-      <h2>Let's grow something.</h2>
-      <p>Got a brand that deserves more attention? I'd love to hear about it.</p>
-      <div class="hero-cta">
-        <a class="btn btn-light" href="mailto:[your@email.com]">📧 [your@email.com]</a>
-        <a class="btn btn-rose" href="https://linkedin.com/in/you">LinkedIn</a>
+    <div class="stats stagger reveal">
+      <div class="stat">
+        <div class="num pop" data-count="18">0</div>
+        <div class="lab">Web3 brands managed</div>
+        <span class="tg real">real</span>
+      </div>
+      <div class="stat">
+        <!-- Combined audience = sum of the 16 managed accounts' followers -->
+        <div class="num pop" data-placeholder="TBD">TBD</div>
+        <div class="lab">Combined audience</div>
+        <span class="tg ph">[sum] · fill in</span>
+      </div>
+      <div class="stat">
+        <div class="num pop" data-placeholder="TBD">TBD</div>
+        <div class="lab">Posts shipped</div>
+        <span class="tg ph">[X] · fill in</span>
+      </div>
+      <div class="stat">
+        <div class="num pop" data-count="2">0</div>
+        <div class="lab">Core platforms</div>
+        <span class="tg real">X &amp; LinkedIn</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================ CLIENT ROSTER ============================================================
+     Each tile is a gradient-free monogram by default. An <img> sits on top and
+     self-removes via onerror, falling back to the monogram. Drop real logos at
+     assets/<brand>.png to light them up.
+     ============================================================ -->
+<section class="sec" id="clients">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">// the roster</span>
+      <h2>18 brands. Degen to institutional.</h2>
+      <p class="lede">One operator across the full spectrum of Web3, from rare-earth magnets to memecoins, CEO ghostwriting to mascot satire.</p>
+    </div>
+
+    <div class="roster stagger reveal">
+      <a class="card brand-card" href="https://x.com/realloys" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">RE<img src="assets/realloys.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>REalloys <span class="arr">↗</span></h3><div class="plat">LinkedIn + X</div></div></div>
+        <p>Rare-earth &amp; defense magnets. B2B thought leadership + CEO ghostwriting.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/FindTheParagon" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">PX<img src="assets/paragon.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>Paragon Exchange <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Structured token products. Brand transition + teaser-to-reveal strategy.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/Americanfort_io" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">AF<img src="assets/american-fortress.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>American Fortress <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Crypto privacy &amp; security infra. Same-day reactive threat-intel content.</p>
+      </a>
+      <article class="card brand-card archived">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">DH<img src="assets/datahaven.png" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>DataHaven</h3><div class="plat">X · archived</div></div></div>
+        <p>Decentralized AI data storage. Mascot-led narrative + UGC.</p>
+      </article>
+      <a class="card brand-card" href="https://x.com/LauncherEco" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">LA<img src="assets/launcher.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>Launcher <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Fair token-launch platform. Analogy-driven explainers.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/trize_io" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">TR<img src="assets/t-rize.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>T-Rize <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>RWA tokenization. Institutional + degen dual-audience content.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/gifthorse_hub" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">GH<img src="assets/gift-horse.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>Gift Horse <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Tap-to-earn “Generosity Economy.” Content-bucket system.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/5th_Kingdom" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">5K<img src="assets/5th-kingdom.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>5th Kingdom <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Web3 persistent-world gaming. Slow-burn narrative voice.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/FFGcoin" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">F3<img src="assets/film3.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>FFGI / Film3 <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>On-chain cinema funding DAO. Mascot satire.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/originalgtc" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">GT<img src="assets/gtc.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>GTC <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>GTA-themed memecoin. High-energy degen voice + meme engine.</p>
+      </a>
+      <article class="card brand-card archived">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">LF<img src="assets/lfg.png" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>LFG</h3><div class="plat">X · archived</div></div></div>
+        <p>Quant trading vault on Lighter. Trader-native memes.</p>
+      </article>
+      <a class="card brand-card" href="https://x.com/impaktofficial" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">IM<img src="assets/impakt.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>IMPAKT <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Fitness SocialFi. KaiKai NFT mint (Magic Eden, Berachain).</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/ICEDCoin" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">IC<img src="assets/iced.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>ICED <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Event-driven thematic memecoin. Character-led meme storytelling.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/Locklyio" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">LO<img src="assets/lockly.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>Lockly <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Sports &amp; lifestyle content brands. Multi-account meme portfolio.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/multibank_io" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">MB<img src="assets/multibank.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>MultiBank <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Regulated multi-asset financial group, now in Web3. X brand voice &amp; content.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/oraichain" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">OR<img src="assets/oraichain.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>Oraichain <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>AI Layer-1 &amp; oracle infrastructure. Technical content made legible.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/WhaleSquares" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">WS<img src="assets/whalesquares.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>WhaleSquares <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>Web3 community &amp; culture brand. X content + engagement.</p>
+      </a>
+      <a class="card brand-card" href="https://x.com/valinitydefi" target="_blank" rel="noopener">
+        <div class="bc-top"><div class="logo-tile" aria-hidden="true">VL<img src="assets/valinity.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+        <div><h3>Valinity DeFi <span class="arr">↗</span></h3><div class="plat">X</div></div></div>
+        <p>DeFi protocol. X content, narrative &amp; community growth.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ SELECTED WORK ============================================================ -->
+<section class="sec dark" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">// selected work</span>
+      <h2>How I move the numbers.</h2>
+      <p class="lede">Four builds across the spectrum: the brand, what I actually did, and the result. Metrics shown as <span class="c-lime">[X]</span> placeholders to fill with real figures.</p>
+    </div>
+    <div class="work stagger reveal">
+      <article class="card case">
+        <div class="kick">B2B · LinkedIn + X</div>
+        <h3>REalloys</h3>
+        <div class="role">Rare-earth &amp; defense magnets</div>
+        <div class="blk"><div class="lbl">The brand</div><p>An institutional rare-earth &amp; defense magnet maker that needed a credible, founder-forward voice in a noisy geopolitical moment.</p></div>
+        <div class="blk"><div class="lbl">What I did</div><p>Built a B2B thought-leadership engine, ghostwrote the CEO on LinkedIn &amp; X, and ran reactive content on supply-chain &amp; policy news.</p></div>
+        <div class="pills"><span class="pill"><b>[X]</b>% follower growth</span><span class="pill"><b>[X]</b> CEO posts shipped</span><span class="pill"><b>[X]</b> inbound leads</span></div>
+      </article>
+      <article class="card case">
+        <div class="kick">SocialFi · X</div>
+        <h3>Gift Horse</h3>
+        <div class="role">Tap-to-earn “Generosity Economy”</div>
+        <div class="blk"><div class="lbl">The brand</div><p>A tap-to-earn app built on a “generosity economy” idea that needed a repeatable content system, not one-off posts.</p></div>
+        <div class="blk"><div class="lbl">What I did</div><p>Designed a 4-layer content-bucket system (narrative, product, community, and meme) so the feed stayed varied, on-brand, and easy to scale.</p></div>
+        <div class="pills"><span class="pill"><b>4</b>-layer bucket system</span><span class="pill"><b>[X]</b>% engagement lift</span><span class="pill"><b>[X]</b> impressions</span></div>
+      </article>
+      <article class="card case">
+        <div class="kick">Security infra · X</div>
+        <h3>American Fortress</h3>
+        <div class="role">Crypto privacy &amp; security infra</div>
+        <div class="blk"><div class="lbl">The brand</div><p>Privacy &amp; security infrastructure where relevance is measured in hours. The news cycle moves, the brand has to move with it.</p></div>
+        <div class="blk"><div class="lbl">What I did</div><p>Stood up a same-day reactive newsjacking engine: threat-intel monitoring → on-brand take → published while the story was still hot.</p></div>
+        <div class="pills"><span class="pill"><b>Same-day</b> turnaround</span><span class="pill"><b>[X]</b> viral reactions</span><span class="pill"><b>[X]</b>% reach growth</span></div>
+      </article>
+      <article class="card case">
+        <div class="kick">Structured products · X</div>
+        <h3>Paragon Exchange</h3>
+        <div class="role">Structured token products</div>
+        <div class="blk"><div class="lbl">The brand</div><p>A structured-products platform mid-rebrand that needed continuity of audience through the transition, without losing momentum.</p></div>
+        <div class="blk"><div class="lbl">What I did</div><p>Ran the brand transition on a 10-bucket content platform and built a teaser → reveal arc that turned the rebrand into an event.</p></div>
+        <div class="pills"><span class="pill"><b>10</b>-bucket platform</span><span class="pill"><b>[X]</b>% retained audience</span><span class="pill"><b>[X]</b> reveal-day reach</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WHAT I DO ============================================================ -->
+<section class="sec pink" id="what">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">// what I do</span>
+      <h2>Six things, done end to end.</h2>
+    </div>
+    <div class="pillars stagger reveal">
+      <div class="card pillar"><div class="tg">voice</div><h3>Brand platform &amp; voice</h3><p>Define the positioning, tone, and rules so every post sounds unmistakably like the brand.</p></div>
+      <div class="card pillar"><div class="tg">strategy</div><h3>Content strategy</h3><p>Map goals to a posting cadence and narrative arc that compounds over weeks, not days.</p></div>
+      <div class="card pillar"><div class="tg">system</div><h3>Content buckets</h3><p>Repeatable bucket systems that keep the feed varied, on-message, and easy to scale.</p></div>
+      <div class="card pillar"><div class="tg">reactive</div><h3>Reactive engagement</h3><p>Same-day newsjacking and replies that put the brand inside the conversation in real time.</p></div>
+      <div class="card pillar"><div class="tg">audience</div><h3>Targeted audience</h3><p>Find and grow the right followers (founders, traders, hiring managers), not vanity numbers.</p></div>
+      <div class="card pillar"><div class="tg">memetic</div><h3>Memetic content</h3><p>Original images &amp; video built to travel. The format that earns the algorithm’s reach.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ LINES THAT LANDED ============================================================
+     TWEET CARDS: fill in the [bracketed] fields with real data:
+       href       = full permalink to the real post (https://x.com/handle/status/123...)
+       @handle    = the brand's real X/LinkedIn handle
+       tweet date = the real post date (e.g. Apr 18, 2025)
+     ============================================================ -->
+<section class="sec lime" id="posts">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">// lines that landed</span>
+      <h2>The writing does the work.</h2>
+      <p class="lede">Real hooks from real posts, across degen, institutional, and everything between.</p>
+    </div>
+    <div class="quotes reveal">
+      <a class="card tweet" href="https://x.com/realloys" target="_blank" rel="noopener">
+        <div class="t-head">
+          <div class="logo-tile" aria-hidden="true">RE<img src="assets/realloys.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+          <div class="t-id"><span class="t-name">REalloys</span><span class="t-handle">@realloys</span></div>
+          <svg class="t-x" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="t-text">The deposits get the headlines. The midstream gets the contracts.</p>
+        <div class="t-foot"><span>[date]</span><span class="t-plat">LinkedIn</span></div>
+      </a>
+      <a class="card tweet" href="https://x.com/LauncherEco" target="_blank" rel="noopener">
+        <div class="t-head">
+          <div class="logo-tile" aria-hidden="true">LA<img src="assets/launcher.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+          <div class="t-id"><span class="t-name">Launcher</span><span class="t-handle">@LauncherEco</span></div>
+          <svg class="t-x" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="t-text">If insiders got a better price than you, it wasn’t a launch. It was a heist.</p>
+        <div class="t-foot"><span>[date]</span><span class="t-plat">X</span></div>
+      </a>
+      <a class="card tweet" href="https://x.com/FindTheParagon" target="_blank" rel="noopener">
+        <div class="t-head">
+          <div class="logo-tile" aria-hidden="true">PX<img src="assets/paragon.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+          <div class="t-id"><span class="t-name">Paragon Exchange</span><span class="t-handle">@FindTheParagon</span></div>
+          <svg class="t-x" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="t-text">Crypto doesn’t need more tokens. It needs more ___.</p>
+        <div class="t-foot"><span>[date]</span><span class="t-plat">X</span></div>
+      </a>
+      <a class="card tweet" href="https://x.com/gifthorse_hub" target="_blank" rel="noopener">
+        <div class="t-head">
+          <div class="logo-tile" aria-hidden="true">GH<img src="assets/gift-horse.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+          <div class="t-id"><span class="t-name">Gift Horse</span><span class="t-handle">@gifthorse_hub</span></div>
+          <svg class="t-x" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="t-text">The oldest currency in the world wasn’t gold. It was kindness.</p>
+        <div class="t-foot"><span>[date]</span><span class="t-plat">X</span></div>
+      </a>
+      <a class="card tweet" href="https://x.com/FFGcoin" target="_blank" rel="noopener">
+        <div class="t-head">
+          <div class="logo-tile" aria-hidden="true">F3<img src="assets/film3.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+          <div class="t-id"><span class="t-name">FFGI / Film3</span><span class="t-handle">@FFGcoin</span></div>
+          <svg class="t-x" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="t-text">Crypto broke the banks. Now we’re breaking Hollywood.</p>
+        <div class="t-foot"><span>[date]</span><span class="t-plat">X</span></div>
+      </a>
+      <a class="card tweet" href="https://x.com/Americanfort_io" target="_blank" rel="noopener">
+        <div class="t-head">
+          <div class="logo-tile" aria-hidden="true">AF<img src="assets/american-fortress.jpg" alt="" loading="lazy" onerror="this.remove()" /></div>
+          <div class="t-id"><span class="t-name">American Fortress</span><span class="t-handle">@Americanfort_io</span></div>
+          <svg class="t-x" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <p class="t-text">Sending money still doesn’t feel like sending money. The infrastructure that fixes that wins.</p>
+        <div class="t-foot"><span>[date]</span><span class="t-plat">X</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ABOUT ============================================================ -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-copy reveal">
+        <span class="label">// about</span>
+        <h2>Part strategist, <span class="c-pink">part memelord.</span></h2>
+        <p>I run social for <strong>18 Web3 brands</strong> across X and LinkedIn, building the
+          <strong>brand platform &amp; voice</strong>, the <strong>content strategy</strong>, and the
+          <strong>bucket systems</strong> that keep feeds sharp, then wiring up
+          <strong>reactive engagement</strong> and <strong>targeted growth</strong> on top.</p>
+        <p>The edge is <strong>memetic</strong>: original images and video that travel, equally at
+          home writing CEO thought leadership for a defense-magnet firm and running a high-energy
+          meme engine for a GTA-themed coin. Degen to institutional, same operator.</p>
+      </div>
+      <div class="tagrows reveal">
+        <div class="tagrow">
+          <div class="lbl">Tools</div>
+          <div class="tags">
+            <span class="tag-item">X / Twitter</span><span class="tag-item">LinkedIn</span>
+            <span class="tag-item">Figma</span><span class="tag-item">CapCut</span>
+            <span class="tag-item">Photoshop</span><span class="tag-item">Notion</span>
+            <span class="tag-item">Typefully</span><span class="tag-item">Analytics</span>
+          </div>
+        </div>
+        <div class="tagrow">
+          <div class="lbl">Strengths</div>
+          <div class="tags">
+            <span class="tag-item">Brand voice</span><span class="tag-item">Ghostwriting</span>
+            <span class="tag-item">Memetic content</span><span class="tag-item">Newsjacking</span>
+            <span class="tag-item">Content systems</span><span class="tag-item">Short-form video</span>
+            <span class="tag-item">Community growth</span><span class="tag-item">Degen ↔ institutional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CONTACT ============================================================ -->
+<section class="sec dark" id="contact">
+  <div class="wrap">
+    <div class="contact-inner reveal">
+      <span class="label">// work with me</span>
+      <h2>Let’s grow your <span class="c-lime">Web3 brand.</span></h2>
+      <p class="lede">Founders &amp; hiring managers: if you want your brand to be one people actually follow, let’s talk.</p>
+      <div class="contact-btns">
+        <!-- Replace bracketed placeholders with your real details -->
+        <a class="btn btn-primary magnetic" href="mailto:[your-email@example.com]">Email me</a>
+        <a class="btn btn-ghost magnetic" href="https://x.com/[your-handle]" target="_blank" rel="noopener">X / Twitter</a>
+        <a class="btn btn-ghost magnetic" href="https://linkedin.com/in/[your-profile]" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================ FOOTER ============================================================ -->
 <footer>
-  <div class="wrap">© <span id="yr"></span> [Your Name] · Built and hosted on GitHub Pages</div>
+  <div class="wrap foot-inner">
+    <span class="brand">Kunal Raut<span class="dot">.</span></span>
+    <span>© <span id="year"></span> Kunal Raut · Built and hosted on GitHub Pages</span>
+  </div>
 </footer>
 
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
+/* Vanilla JS, no libraries:
+   1. Mobile nav   2. Footer year   3. Scroll progress bar
+   4. Scroll reveals + count-up (IntersectionObserver)
+   5. Velocity-reactive marquees   6. Pointer tilt on cards   7. Magnetic buttons
+   All motion is skipped under prefers-reduced-motion. */
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine   = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  },{threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // 1. Mobile nav
+  var toggle = document.getElementById("navToggle");
+  var links  = document.getElementById("navLinks");
+  if (toggle && links){
+    toggle.addEventListener("click", function(){
+      var open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    links.addEventListener("click", function(e){
+      if (e.target.tagName === "A"){ links.classList.remove("open"); toggle.setAttribute("aria-expanded","false"); }
+    });
+  }
 
-  // Count-up stats
-  const countUp = (el)=>{
-    const target = parseFloat(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    const decimals = (target % 1 !== 0) ? 1 : 0;
-    const dur = 1400; const start = performance.now();
-    const step = (now)=>{
-      const p = Math.min((now-start)/dur,1);
-      const eased = 1-Math.pow(1-p,3);
-      el.textContent = (target*eased).toFixed(decimals)+suffix;
-      if(p<1) requestAnimationFrame(step);
-    };
+  // 2. Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // 3. Scroll progress bar
+  var bar = document.getElementById("progress");
+  if (bar && !reduce){
+    var ticking = false;
+    window.addEventListener("scroll", function(){
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var h = document.documentElement;
+        var max = h.scrollHeight - h.clientHeight;
+        bar.style.transform = "scaleX(" + (max > 0 ? h.scrollTop / max : 0) + ")";
+        ticking = false;
+      });
+    }, {passive:true});
+  }
+
+  // 4. Count-up
+  function countUp(el){
+    var ph = el.getAttribute("data-placeholder");
+    var raw = parseFloat(el.getAttribute("data-count"));
+    if (ph && (isNaN(raw) || raw === 0)){ el.textContent = ph; return; }
+    var target = isNaN(raw) ? 0 : raw;
+    var suffix = el.getAttribute("data-suffix") || "";
+    if (reduce || target === 0){ el.textContent = target + suffix; return; }
+    var dur = 1500, start = null;
+    function step(ts){
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = target + suffix;
+    }
     requestAnimationFrame(step);
-  };
-  const statIO = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ countUp(e.target); statIO.unobserve(e.target);} });
-  },{threshold:.6});
-  document.querySelectorAll('.num').forEach(el=>statIO.observe(el));
+  }
+
+  // 4. Reveals + trigger counters
+  var revealEls = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window) || reduce){
+    revealEls.forEach(function(el){ el.classList.add("in"); });
+    document.querySelectorAll("[data-count]").forEach(countUp);
+  } else {
+    var io = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.classList.add("in");
+        if (el.querySelectorAll) el.querySelectorAll("[data-count]").forEach(countUp);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  // 5. Velocity-reactive marquees (single rAF loop drives all rows)
+  if (!reduce){
+    var tracks = [];
+    document.querySelectorAll(".mq-track").forEach(function(el){
+      el.innerHTML += el.innerHTML;            // duplicate content for a seamless, gap-free loop
+      var dir = el.getAttribute("data-dir") === "right" ? 1 : -1;
+      var half = el.scrollWidth / 2;
+      tracks.push({ el: el, dir: dir, half: half, x: dir < 0 ? 0 : -half });
+    });
+    window.addEventListener("resize", function(){
+      tracks.forEach(function(t){ t.half = t.el.scrollWidth / 2; });
+    }, {passive:true});
+
+    var extra = 0, lastY = window.scrollY || 0;
+    window.addEventListener("scroll", function(){
+      var y = window.scrollY || 0;
+      extra = Math.min(Math.abs(y - lastY) * 0.45, 26);
+      lastY = y;
+    }, {passive:true});
+
+    var base = 0.55;
+    function loop(){
+      extra *= 0.9;
+      var speed = base + extra;
+      for (var i = 0; i < tracks.length; i++){
+        var t = tracks[i];
+        t.x += t.dir * speed;
+        if (t.dir < 0 && t.x <= -t.half) t.x += t.half;
+        if (t.dir > 0 && t.x >= 0)       t.x -= t.half;
+        t.el.style.transform = "translateX(" + t.x.toFixed(2) + "px)";
+      }
+      requestAnimationFrame(loop);
+    }
+    if (tracks.length) requestAnimationFrame(loop);
+  }
+
+  // 6. Pointer tilt on cards (desktop, fine pointer only)
+  if (fine && !reduce){
+    document.querySelectorAll(".card").forEach(function(card){
+      card.addEventListener("pointermove", function(e){
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width  - 0.5;
+        var py = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = "perspective(800px) rotateX(" + (-py * 5).toFixed(2) +
+          "deg) rotateY(" + (px * 7).toFixed(2) + "deg) translateY(-4px)";
+      });
+      card.addEventListener("pointerleave", function(){ card.style.transform = ""; });
+    });
+
+    // 7. Magnetic buttons
+    document.querySelectorAll(".magnetic").forEach(function(btn){
+      btn.addEventListener("pointermove", function(e){
+        var r = btn.getBoundingClientRect();
+        var mx = e.clientX - r.left - r.width / 2;
+        var my = e.clientY - r.top  - r.height / 2;
+        btn.style.transform = "translate(" + (mx * 0.25).toFixed(2) + "px," + (my * 0.35).toFixed(2) + "px)";
+      });
+      btn.addEventListener("pointerleave", function(){ btn.style.transform = ""; });
+    });
+  }
+})();
 </script>
 </body>
 </html>
